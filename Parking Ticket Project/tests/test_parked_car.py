@@ -11,5 +11,10 @@ class ValidParkedCar(unittest.TestCase):
         self.assertEqual(self.car.make, "Ford")
         self.assertEqual(self.car.model, "F150")
         self.assertEqual(self.car.color, "Blue")
-        self.assertEqual(self.car.license_number, "89052")
+        self.assertEqual(self.car.license_number, 89052)
         self.assertEqual(self.car.minutes_parked, 49)
+
+class InvalidParkedCar(unittest.TestCase):
+    def test_invalid_parked_car(self):
+        with self.assertRaises(ValueError):
+            self.car = ParkedCar("Honda", "Civic", "Gray", 0, -15)
