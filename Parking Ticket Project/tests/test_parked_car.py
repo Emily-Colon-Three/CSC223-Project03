@@ -14,6 +14,7 @@ class ValidParkedCar(unittest.TestCase):
         self.assertEqual(self.car.license_number, 89052)
         self.assertEqual(self.car.minutes_parked, 49)
 
+# Creates invalid ParkedCar object with a negative number of minutes parked; should raise ValueError
 class InvalidParkedCar(unittest.TestCase):
     def test_invalid_parked_car(self):
         with self.assertRaises(ValueError):

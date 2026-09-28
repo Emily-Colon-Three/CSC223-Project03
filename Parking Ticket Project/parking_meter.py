@@ -1,15 +1,19 @@
-class parking_meter:
+class ParkingMeter:
+    """ParkingMeter is a very simple class with one property.
+    purchased_time is an integer representing the number of minutes bought on the meter.
+    number of minutes cannot be less than 0; in that case, ValueError is raised.
+    It is inspected and passed into the PoliceOfficer class."""
 
     def __init__(self, purchased_time):
-        self.purchased_time = purchased_time
+        self.minutes_purchased = purchased_time
 
     @property
-    def purchased_time(self):
-        return self.purchased_time
+    def minutes_purchased(self) -> int:
+        return self._minutes_purchased
 
-    @purchased_time.setter
-    def purchased_time(self, new):
+    @minutes_purchased.setter
+    def minutes_purchased(self, new):
         if new >= 0:
-            self.purchased_time = new
+            self._minutes_purchased = new
         else:
-            raise ValueError("purchased_time must be >= 0")
+            raise ValueError("minutes_purchased must be >= 0")
