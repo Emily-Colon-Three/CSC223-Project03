@@ -27,6 +27,7 @@ class InspectAtTime(unittest.TestCase):
 
 # Collaboration with ParkingTicket
 
+# Creates a car parked over the meter limit by a whole hour, and has officer inspect it. Checks that the ticket has all the right information.
 class CarAndOfficerInfoTicket(unittest.TestCase):
     def setUp(self):
         self.car = ParkedCar("Volkswagen", "Beetle", "Yellow", 6460, 120)
