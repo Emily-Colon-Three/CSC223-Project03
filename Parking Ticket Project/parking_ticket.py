@@ -12,9 +12,10 @@ class ParkingTicket:
     Includes __str__() dunder method, making it compatible with str() using custom behavior
     to output a readable report of all the data within the object."""
 
-    def __init__(self, car_make, car_model, car_license, illegal_minutes, officer_name, officer_badge):
+    def __init__(self, car_make, car_model, car_color, car_license, illegal_minutes, officer_name, officer_badge):
         self.car_make = car_make
         self.car_model = car_model
+        self.car_color = car_color
         self.car_license = car_license
         self.illegal_minutes = illegal_minutes
         self.officer_name = officer_name
@@ -37,6 +38,13 @@ class ParkingTicket:
     @car_model.setter
     def car_model(self, new):
         self._car_model = new
+
+    @property
+    def car_color(self) -> str:
+        return self._car_color
+    @car_color.setter
+    def car_color(self, new):
+        self._car_color = new
 
     @property
     def car_license(self) -> int:
@@ -82,6 +90,7 @@ class ParkingTicket:
             # Car Data
             f"Car Make  : {self.car_make}\n"
             f"Car Model : {self.car_model}\n"
+            f"Car Color : {self.car_color}\n"
             f"License # : {self.car_license}\n\n"
             
             # Citation and Fine

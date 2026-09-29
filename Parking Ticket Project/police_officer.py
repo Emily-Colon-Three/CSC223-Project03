@@ -34,7 +34,7 @@ class PoliceOfficer:
         minutes_over = ParkedCar.minutes_parked - ParkingMeter.minutes_purchased
 
         if minutes_over > 0:
-            self.officer_ticket = ParkingTicket(ParkedCar.make, ParkedCar.model, ParkedCar.license_number, minutes_over, self._name, self._badge_num)
+            self.officer_ticket = ParkingTicket(ParkedCar.make, ParkedCar.model, ParkedCar.color, ParkedCar.license_number, minutes_over, self._name, self._badge_num)
 
             print(str(self.officer_ticket)) # Print out ticket report to terminal
             return self.officer_ticket
