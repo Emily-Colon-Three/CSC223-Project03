@@ -8,7 +8,9 @@ class ParkingTicket:
     that it always is a positive integer. Passed in by PoliceOfficer.
     Remaining properties, officer_name and officer_badge, are copied from PoliceOfficer object.
     The ParkingTicket class automatically calculates fine amounts depending on number of illegal
-    minutes stored, with $25 charged for the first hour and $10 for each subsequent hour."""
+    minutes stored, with $25 charged for the first hour and $10 for each subsequent hour.
+    Includes __str__() dunder method, making it compatible with str() using custom behavior
+    to output a readable report of all the data within the object."""
 
     def __init__(self, car_make, car_model, car_license, illegal_minutes, officer_name, officer_badge):
         self.car_make = car_make
@@ -73,3 +75,20 @@ class ParkingTicket:
         illegal_hours = math.ceil(illegal_minutes / 60)
         fine = (illegal_hours - 1) * 10 + 25
         return fine
+
+    # Returns a string when using str() for ParkingTicket which produces a full report of its contents.
+    def __str__(self):
+        return (
+            # Car Data
+            f"Car Make  : {self.car_make}\n"
+            f"Car Model : {self.car_model}\n"
+            f"License # : {self.car_license}\n\n"
+            
+            # Citation and Fine
+            f"Minutes Over Paid Limit   : {self.illegal_minutes}\n"
+            f"Fine Amount               : ${self.fine}\n\n"
+            
+            # Issuing Officer Info
+            f"Officer Name      : {self.officer_name}\n"
+            f"Officer Badge #   : {self.officer_badge}"
+        )
